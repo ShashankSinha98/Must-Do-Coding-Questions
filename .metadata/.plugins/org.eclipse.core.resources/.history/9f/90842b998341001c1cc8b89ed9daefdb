@@ -1,0 +1,61 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+
+public class Combination_Sum_Part_2 {
+
+	public static void main(String[] args) {
+		
+		int[] arr = new int[] {9, 1, 2, 7, 6, 1, 5};
+		ArrayList<ArrayList<Integer>> res = combinationSum(arr, 7, 8);
+		System.out.println(res);
+
+	}
+	
+	static HashSet<ArrayList<Integer>> res;
+	static ArrayList<Integer> temp;
+	
+	
+	
+	static ArrayList<ArrayList<Integer>> combinationSum(int A[], int N, int B)
+    {
+        res = new HashSet<>();
+        temp = new ArrayList<>();
+        
+        Arrays.sort(A);
+        
+        recc(A, 0, 0, B);
+        System.out.println("res: "+res);
+        return new ArrayList<>(res);
+    }
+	
+	static void recc(int[] A, int i, int cs, int ts) {
+		// System.out.println("temp: "+temp+", cs: "+cs);
+		
+		if(cs==ts) {
+			ArrayList<Integer> t = new ArrayList<>();
+			for(int x: temp) {
+				t.add(x);
+			}
+			Collections.sort(t);
+			res.add(t);
+			return;
+		}
+		
+		if(i>=A.length || cs>ts) {
+			return;
+		}
+		
+		// include
+		cs += A[i];
+		temp.add(A[i]);
+		recc(A, i+1, cs, ts);
+		
+		// not include
+		cs-=A[i];
+		temp.remove(Integer.valueOf(A[i]));
+		recc(A, i+1, cs, ts);
+	}
+
+}

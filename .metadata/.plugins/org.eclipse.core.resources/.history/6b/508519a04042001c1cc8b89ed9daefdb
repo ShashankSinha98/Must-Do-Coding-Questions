@@ -1,0 +1,28 @@
+
+public class SpecialKeyboard {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int res = optimalKeys(7);
+		System.out.println(res);
+	}
+	
+	static int optimalKeys(int N){
+		
+		if(N<7) return N;
+		
+		int max = 0;
+		
+		for(int i=1; i<=N-3; i++) {
+			int x = (N-(i+1))*i;
+			if(x>max)
+				max = x;
+		}
+		
+		return max;
+    }
+	
+
+
+}

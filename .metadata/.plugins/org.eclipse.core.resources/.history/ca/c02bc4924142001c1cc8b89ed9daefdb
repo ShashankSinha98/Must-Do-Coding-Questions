@@ -1,0 +1,38 @@
+
+public class SpecialKeyboard {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int res = optimalKeys(7);
+		System.out.println(res);
+	}
+	
+	static int optimalKeys(int N){
+		
+		if(N<7) return N;
+		
+		int[] dp = new int[N+1];
+		for(int i=0; i<=6; i++) dp[i] = i;
+		
+		int max = 0;
+		
+		// we are finding optimal point from N-3 to 1, after which if we select, copy
+		// and paste - we will get max length
+		for(int n=7; n<=N; n++) {
+			max = 0;
+			for(int i=n-3; i>=1; i--) {
+				int x = dp[i] * (N-i-1);
+				
+				if(x>max)
+					max = x;	
+			}
+			dp[n] = max;
+		}
+		
+		return dp[N];
+    }
+	
+
+
+}

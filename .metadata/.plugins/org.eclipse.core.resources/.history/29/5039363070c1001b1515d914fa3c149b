@@ -1,0 +1,77 @@
+import java.util.*;
+public class RecursivelyRmoveAllAdjacentDuplicates {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println(re("abccbccba"));
+	}
+	
+	static String remove(String s) {
+       
+		Stack<Character> st = new Stack<>();
+		
+		if(s.isEmpty()) return s;
+		
+		st.add(s.charAt(0));
+		
+		char top = st.peek();
+		int i=1;
+		
+		while(i<s.length()) {
+			
+			if(s.charAt(i)==top) {
+				st.pop();
+				
+				while(i<s.length() && s.charAt(i)==top) i++;
+				top = st.peek();
+				
+				
+			} else {
+				st.add(s.charAt(i));
+				i++;
+				top = st.peek();
+			}
+			
+			
+		}
+		
+		String res = "";
+		while(!st.isEmpty()) {
+			char c = st.pop();
+			res = c + res;
+		}
+		
+		s = res;
+		
+		//System.out.println(st);
+		return s;
+    }
+	
+	static String remove2(String s) {
+		
+		
+	}
+	
+	private static String removeAdjDuplicates(String s) {
+		
+		int i=0;
+		char[] ans = new char[s.length()];
+		int ansSize = 0;
+		
+		while(i<s.length()) {
+			if(ansSize>0 && s.charAt(i)==ans[ansSize-1]) {
+				while(ans[ansSize-1]==s.charAt(i)) i++;
+				ans[ansSize-1] = '\0';
+				ansSize--;
+					
+			} else {
+				ans[ansSize++] = s.charAt(i);
+				i++;
+			}
+		}
+		
+		return new String(ans,0,ansSize);
+		
+	}
+}

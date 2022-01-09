@@ -1,0 +1,30 @@
+import java.util.Arrays;
+
+public class FloodFillAlgorithm {
+
+	public static void main(String[] args) {
+		
+		int[][] image = new int[][]{{1,1,1},{1,1,0},{1,0,1}};
+		
+		int[][] res = floodFill(image, 1, 1, 2);
+		
+		System.out.println(Arrays.toString(res));
+
+	}
+	
+	public static int[][] floodFill(int[][] image, int sr, int sc, int newColor)
+    {
+        if(sr<0 || sc<0 || sr>=image.length || sc>=image[0].length || image[sr][sc]==0)
+        	return image;
+        
+        image[sr][sc]=newColor;
+        
+        floodFill(image, sr+1, sc, newColor);
+        floodFill(image, sr-1, sc, newColor);
+        floodFill(image, sr, sc-1, newColor);
+        floodFill(image, sr, sc+1, newColor);
+        
+        return image;
+    }
+
+}

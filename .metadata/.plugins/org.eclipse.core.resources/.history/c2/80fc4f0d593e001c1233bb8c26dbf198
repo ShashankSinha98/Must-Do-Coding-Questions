@@ -1,0 +1,38 @@
+
+public class LongestCommonSubstring {
+	
+	public static void main(String[] args) {
+		String S1 = "ABC", S2 = "ACB";
+		
+		int res = longestCommonSubstr(S1, S2, S1.length(), S2.length());
+		System.out.println("res: "+res);
+	}
+	
+	static int currLength, maxLength;
+	
+	static int longestCommonSubstr(String S1, String S2, int n, int m) {
+		currLength = 0;
+		maxLength = Integer.MIN_VALUE;
+		
+		lcs(S1, S2, S1.length()-1, S2.length()-1);
+		
+		return maxLength==Integer.MIN_VALUE? 0:maxLength;
+    }
+	
+	static void lcs(String S1, String S2, int n, int m) {
+		
+		if(n==-1 || m==-1) return;
+		
+		if(S1.charAt(n)==S2.charAt(m)) {
+			currLength += 1;
+			if(currLength > maxLength) maxLength = currLength;
+			
+			lcs(S1, S2, m-1, m-1);
+		} else {
+			currLength = 0;
+			
+			lcs(S1, S2, n-1, m);
+			lcs(S1, S2, n, m-1);
+		}
+    }
+}

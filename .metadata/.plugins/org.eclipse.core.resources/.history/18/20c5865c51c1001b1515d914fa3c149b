@@ -1,0 +1,29 @@
+import java.util.HashMap;
+
+public class ConvertToRomanNo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	HashMap<Integer, String> map;
+	
+	private void init() {
+		map = new HashMap<>();
+		map.put(1000, "M");
+		map.put(500, "D");
+		map.put(100, "C");
+		map.put(50, "L");
+		map.put(10, "X");
+		map.put(5, "V");
+		map.put(1, "I");
+	}
+	
+	String convertToRoman(int n)
+    {
+		
+		
+    }
+
+}

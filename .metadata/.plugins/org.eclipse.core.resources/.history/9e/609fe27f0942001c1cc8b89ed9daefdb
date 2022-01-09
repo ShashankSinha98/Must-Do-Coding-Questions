@@ -1,0 +1,50 @@
+
+public class SpecialKeyboard {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int res = optimalKeys(10);
+		System.out.println(res);
+	}
+	
+	static int optimalKeys(int N){
+       int currText = 0;
+       int selectedText = 0;
+       int buffer = 0;
+       
+       return recc(N, currText, selectedText, buffer);
+    }
+	
+	
+	static int recc(int N, int currText, int selectedText, int buffer) {
+		
+		if(N==0) return currText;
+		
+		// print A
+		int a = recc(N-1, currText+1, selectedText, buffer);
+		
+		// select text
+		int b = 0;
+		if(currText!=0) {
+			b = recc(N-1, currText, currText, buffer);
+		}
+		// ctrl+c
+		int c = 0;
+		if(selectedText!=0) {
+			c = recc(N-1, currText, selectedText, selectedText);
+		}
+		
+		// ctrl+v
+		int d = 0;
+		if(buffer!=0) {
+			d = recc(N-1, currText+buffer, selectedText, buffer);
+		}
+		
+		
+		return Math.max(a, Math.max(b, Math.max(c, d)));
+		
+	}
+	
+
+}

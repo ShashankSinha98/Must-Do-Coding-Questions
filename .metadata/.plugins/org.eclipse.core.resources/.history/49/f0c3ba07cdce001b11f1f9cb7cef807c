@@ -1,0 +1,42 @@
+import java.util.*;
+
+public class CamelCasePatternMatching {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	ArrayList<String> CamelCase(int N,String[] Dictionary,String Pattern){
+        
+		HashMap<String, ArrayList<Integer>> map = new HashMap<>(); 
+		ArrayList<String> res = new ArrayList<>();
+		
+		for(int i=0; i<N; i++) {
+			
+			if(isValid(Dictionary[i], Pattern)) {
+				
+				res.add(Dictionary[i]);
+				
+			}
+		}
+		return res;
+		
+		
+    }
+	
+	private Boolean isValid(String str, String Pattern) {
+		String res = "";
+		
+		for(char c: str.toCharArray()) {
+			if(c>='A' && c<='Z') res+=c;
+			
+			if(res.length()==Pattern.length()) {
+				if(res.equals(Pattern)) return true;
+				return false;
+			}
+		}
+		return false;
+	}
+
+}

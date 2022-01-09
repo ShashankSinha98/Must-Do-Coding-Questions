@@ -1,0 +1,71 @@
+import java.util.HashMap;
+
+public class ConvertToRomanNo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		init();
+		System.out.println(get(3,10));
+	}
+	
+	static HashMap<Integer, String> map;
+	
+	private static void init() {
+		map = new HashMap<>();
+		map.put(1000, "M");
+		map.put(500, "D");
+		map.put(100, "C");
+		map.put(50, "L");
+		map.put(10, "X");
+		map.put(9, "IX");
+		map.put(8, "VIII");
+		map.put(7, "VII");
+		map.put(6, "VI");
+		map.put(5, "V");
+		map.put(4, "IV");
+		map.put(3, "II");
+		map.put(2, "II");
+		map.put(1, "I");
+	}
+	
+	String convertToRoman(int n)
+    {
+		init();
+		return "";
+    }
+	
+	static String get(int n, int pow) {
+		
+		if(pow==0) return map.get(n);
+		
+		String res = "";
+		
+		int c = 0;
+		if(n<=3) c=1;
+		else if(n==9) c=10;
+		else c=5;
+		
+		int cpow = c*pow;
+		
+		if(c<=3) {
+			for(int i=c; i<=n; i++)  res += map.get(cpow);
+			return res;
+		} else if(c==9) {
+			res = map.get((c-n)*pow) + map.get(cpow);
+			return res;
+		} else {
+			
+			if(c==4) {
+				res = map.get((c-n)*pow) + map.get(cpow);
+				return res;
+			} else {
+				res += map.get(cpow);
+				for(int i=c+1; i<=n; i++) res+=map.get(cpow);
+				return res;
+			}
+		}
+		
+	}
+
+}

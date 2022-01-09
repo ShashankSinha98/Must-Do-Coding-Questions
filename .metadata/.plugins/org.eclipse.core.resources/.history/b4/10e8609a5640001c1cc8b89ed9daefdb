@@ -1,0 +1,20 @@
+
+public class NumberOfPaths {
+
+	public static void main(String[] args) {
+		
+		long res = numberOfPaths(2, 2);
+		System.out.println("res: "+res);
+	}
+	
+	static long numberOfPaths(int m, int n) {
+        // base case
+		if(m==0 && n==0) return 1;
+		
+		// out of grid
+		if(m<0 || n<0) return 0;
+		
+		return numberOfPaths(m-1, n) + numberOfPaths(m, n-1);
+    }
+
+}

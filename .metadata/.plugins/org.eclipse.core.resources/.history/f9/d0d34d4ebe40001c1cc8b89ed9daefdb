@@ -1,0 +1,47 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Combination_Sum_Part_2 {
+
+	public static void main(String[] args) {
+		
+		int[] arr = new int[] {9, 1, 2, 7, 6, 1, 5};
+		ArrayList<ArrayList<Integer>> res = combinationSum(arr, 7, 8);
+		System.out.println(res);
+
+	}
+	
+	static ArrayList<ArrayList<Integer>> res;
+	static ArrayList<Integer> temp;
+	
+	static ArrayList<ArrayList<Integer>> combinationSum(int A[], int N, int B)
+    {
+        res = new ArrayList<>();
+        temp = new ArrayList<>();
+        
+        recc(A, 0, 0, B);
+        return res;
+    }
+	
+	static void recc(int[] A, int i, int cs, int ts) {
+		System.out.println(temp);
+		if(i>=A.length ) return;
+		
+		if(cs==ts) {
+			Collections.sort(temp);
+			res.add(temp);
+			return;
+		}
+		
+		// include
+		cs += A[i];
+		temp.add(A[i]);
+		recc(A, i+1, cs, ts);
+		
+		// not include
+		cs-=A[i];
+		temp.remove(Integer.valueOf(A[i]));
+		recc(A, i+1, cs, ts);
+	}
+
+}

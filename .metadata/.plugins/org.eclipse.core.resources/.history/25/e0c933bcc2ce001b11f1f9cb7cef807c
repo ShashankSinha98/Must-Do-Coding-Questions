@@ -1,0 +1,20 @@
+	
+public class ColorfulStrings {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println(fact(20));
+	}
+	
+	static long possibleStrings(int n, int r, int b, int g) {
+        return 0l;
+    }
+	
+	private static long fact(int n) {
+		if(n==1) return 1l;
+		
+		return n * fact(n-1);
+	}
+
+}

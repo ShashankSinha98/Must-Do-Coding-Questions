@@ -1,0 +1,32 @@
+import java.util.Arrays;
+
+public class SmallestPositiveMissingNumber {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		missingNumber(new int[] {5,10,2,3,1}, 5);
+	}
+	
+	static int missingNumber(int arr[], int size)
+    {
+        int idx=1;
+        
+        while(idx<=size) {
+        	if(arr[idx-1]<=0 || arr[idx-1]>size || arr[idx-1]==idx) idx++;
+        	
+        	else {
+        		while(arr[idx-1]!=idx && arr[idx-1]>0 && arr[idx-1]<=size) {
+        			int temp = arr[arr[idx-1]-1];
+        			arr[arr[idx-1]-1] = arr[idx-1];
+        			arr[idx-1] = temp;
+        		}
+        		idx++;
+        	}
+        }
+        
+        System.out.println(Arrays.toString(arr));
+        return 0;
+    }
+
+}

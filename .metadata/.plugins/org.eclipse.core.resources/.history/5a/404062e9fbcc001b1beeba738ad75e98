@@ -1,0 +1,29 @@
+
+public class MaximumIndex {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	
+		System.out.println(maxIndexDiff(new int[] {1,10}, 2));
+	}
+	
+	static int maxIndexDiff(int arr[], int n) { 
+        
+        int i=0,j=0;
+        int ans = Integer.MIN_VALUE;
+        
+        while (i<n && j<n) {
+        	if(arr[i]<arr[j]) j++;
+        	else {
+        		int res = j-1-i;
+        		ans = Math.max(ans, res);
+        	}
+        }
+        
+        int res = j-1-i;
+		ans = Math.max(ans, res);
+		
+        return ans;
+    }
+
+}

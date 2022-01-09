@@ -1,0 +1,49 @@
+import java.util.Arrays;
+
+public class ColorfulStrings {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println(possibleStrings(4, 2, 0, 1));
+	}
+	
+	static long possibleStrings(int n, int r, int b, int g) {
+        
+		long[] fact = new long[21];
+		
+		for(int i=1; i<fact.length; i++) {
+			fact[i] = fact(i);
+		}
+		
+		long res = 0;
+		long num = fact[n];
+		
+		// For red
+		int red = n-(b+g);
+		long redPerm = num/fact[red];
+		redPerm/= fact[b];
+		redPerm/= fact[g];
+		
+		// For Blue
+		int blue = n-(r+g);
+		long bluePerm = num/fact[blue];
+		bluePerm/= fact[r];
+		bluePerm/= fact[g];
+		
+		// For green
+		int green = n-(r+b);
+		long greenPerm = num/fact[green];
+		greenPerm/= fact[r];
+		greenPerm/= fact[b];
+		
+		return redPerm + bluePerm + greenPerm;
+    }
+	
+	private static long fact(int n) {
+		if(n==1) return 1l;
+		
+		return n * fact(n-1);
+	}
+
+}

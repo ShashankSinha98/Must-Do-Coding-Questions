@@ -1,0 +1,45 @@
+import java.util.Arrays;
+import Helper;
+
+public class FloodFillAlgorithm {
+
+	public static void main(String[] args) {
+		
+		int[][] image = new int[][]{{1,1,1},{1,1,0},{1,0,1}};
+		
+		int[][] res = floodFill(image, 1, 1, 2);
+		
+		print2DArray(res);
+
+	}
+	
+	
+	
+	public static int[][] floodFill(int[][] image, int sr, int sc, int newColor)
+    {
+        if(sr<0 || sc<0 || sr>=image.length || sc>=image[0].length)
+        	return image;
+        
+        if(image[sr][sc]!=1) return image;
+        
+        image[sr][sc]=newColor;
+        
+        floodFill(image, sr+1, sc, newColor);
+        floodFill(image, sr-1, sc, newColor);
+        floodFill(image, sr, sc-1, newColor);
+        floodFill(image, sr, sc+1, newColor);
+        
+        return image;
+    }
+	
+	static void print2DArray(Object[][] arr) {
+		for(int i=0; i<arr.length; i++) {
+			for(int j=0; j<arr[i].length; j++) {
+				System.out.print(arr[i][j]+", ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+
+}
