@@ -1,0 +1,38 @@
+import java.util.*;
+
+public class MinimumSwapsToSort {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public int minSwaps(int nums[]) {
+	
+		LNode[] nodeList = new LNode[nums.length];
+		for(int i=0; i<nums.length; i++) {
+			nodeList[i] = new LNode(nums[i], i);
+		}
+		
+		Comparator<LNode> comp = (l1, l2) -> l1.value - l2.value;
+		Arrays.sort(nodeList, comp);
+		
+	
+    }
+	
+
+}
+
+class LNode {
+	int value, idx;
+	public LNode(int value, int idx) {
+		this.value = value;
+		this.idx = idx;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "(v: "+value+", idx: "+idx+")";
+	}
+}

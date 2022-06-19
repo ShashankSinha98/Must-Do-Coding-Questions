@@ -1,0 +1,7 @@
+import java.util.*;
+class ChooseAndSwap {
+	
+	public static void main(String... args) {
+		
+	}
+}

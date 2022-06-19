@@ -1,0 +1,35 @@
+import java.util.*;
+public class MinimizeTheHeightsI {
+
+	public static void main(String[] args) {
+		
+		int[] arr = new int[] {3, 9, 12, 16, 20};
+		int n = arr.length;
+		int k = 3;
+		int ans = getMinDiff(arr, n, k);
+		System.out.println("ans: "+ans);
+
+	}
+	
+	static int getMinDiff(int[] arr, int n, int k) {
+		
+		Arrays.sort(arr);
+		int diff = arr[n-1] - arr[0];
+		
+		int tempMin, tempMax;
+		
+		for(int i=1; i<n; i++) {
+			
+			if(arr[i]-k<0) continue;
+			
+			tempMin = Math.min(arr[i]-k, arr[0]+k);
+			tempMax = Math.max(arr[i-1]+k, arr[n-1]-k);
+			
+			diff = Math.min(diff, tempMax-tempMin);
+		}
+		
+		return diff;
+    }
+	
+
+}

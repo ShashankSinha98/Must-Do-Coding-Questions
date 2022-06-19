@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;activities&apos; in &apos;N_MeetingsInOneRoom.maxMeetings(...)&apos; to &apos;meetings&apos;&#x0D;&#x0A;- Original project: &apos;Greedy&apos;&#x0D;&#x0A;- Original element: &apos;N_MeetingsInOneRoom.maxMeetings(int[], int[], int).activities&apos;&#x0D;&#x0A;- Renamed element: &apos;activities&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;activities&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{N_MeetingsInOneRoom.java[N_MeetingsInOneRoom~maxMeetings~\[I~\[I~I@activities!342!386!356!365!QList\&lt;QMeeting;&gt;;!0!false" name="meetings" references="true" stamp="1653206013270" version="1.0"/>
+</session>

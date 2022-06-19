@@ -1,0 +1,17 @@
+import java.util.Arrays;
+
+public class test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Integer i=5;
+		fun(i);
+		System.out.println(i);
+	}
+	
+	static void  fun(Integer i) {
+		i = 10;
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;DetectCycleInUndirectedGraph.recursive(...)&apos; to &apos;detectCycle&apos;&#x0D;&#x0A;- Original project: &apos;Graph&apos;&#x0D;&#x0A;- Original element: &apos;DetectCycleInUndirectedGraph.recursive(...)&apos;&#x0D;&#x0A;- Renamed element: &apos;DetectCycleInUndirectedGraph.detectCycle(...)&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;recursive&apos;" flags="589826" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;{DetectCycleInUndirectedGraph.java[DetectCycleInUndirectedGraph~recursive~I~QArrayList\&lt;QArrayList\&lt;QInteger;&gt;;&gt;;~\[Z~I" name="detectCycle" references="true" stamp="1655374255718" version="1.0"/>
+</session>

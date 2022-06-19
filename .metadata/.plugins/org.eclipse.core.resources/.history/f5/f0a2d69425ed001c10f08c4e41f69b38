@@ -1,0 +1,39 @@
+import java.util.*;
+public class DetectCycleInUndirectedGraph {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	private static int start;
+	 public static boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj) {
+		 int[] visited = new int[V+1];
+		 Arrays.fill(visited, -1);
+		 
+		 start = 0;
+		 for(int vi=0; vi<V; vi++) {
+			 if(visited[vi]==-1) {
+				 boolean ans = recursive(vi, adj, visited);
+			 }
+				 
+		 }
+	 }
+	 
+	 private static boolean recursive(int vi, ArrayList<ArrayList<Integer>> adj, int[] visited) {
+		 visited[vi] = start;
+		 
+		 for(int ci: adj.get(vi)) {
+			 if(visited[ci]==-1) {
+				 start++;
+				 boolean ans = recursive(ci, adj, visited);
+				 start --;
+				 return ans;
+			 } else if(Math.abs(visited[ci]-visited[vi])!=1) return true; 
+		 }
+		 
+		 return false;
+		 
+	 }
+
+}

@@ -1,0 +1,46 @@
+import java.util.*;
+public class DetectCycleInADirectedGraph {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+
+	}
+	
+	public static boolean isCyclic(int V, ArrayList<ArrayList<Integer>> adj) {
+        boolean[] visited = new boolean[V+1];
+        boolean[] instack = new boolean[V+1];
+        
+        Arrays.fill(visited, false);
+        Arrays.fill(instack, false);
+        
+        for(int vi=0; vi<V; vi++) {
+        	if(!visited[vi]) {
+        		boolean isCycle = detectCycle(vi, visited, instack, adj);
+        		if(isCycle) return true;
+        	}
+        }
+        
+        return false;
+    }
+	
+	private static boolean detectCycle(int vi, boolean[] visited, boolean[] instack, ArrayList<ArrayList<Integer>> adj) {
+		visited[vi] = true;
+		instack[vi] = true;
+		
+		for(int ci: adj.get(vi)) {
+			
+			if(!visited[ci]) {
+				boolean isCycle = detectCycle(ci, visited, instack, adj);
+				if(isCycle) return true;
+			} else if(instack[ci]) {
+				return true;
+			}
+		}
+		
+		instack[vi] = false;
+		return false;
+	}
+
+}

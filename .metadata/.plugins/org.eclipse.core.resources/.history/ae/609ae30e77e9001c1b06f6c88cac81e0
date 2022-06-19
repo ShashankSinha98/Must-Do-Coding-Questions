@@ -1,0 +1,41 @@
+import java.util.*;
+public class MinimizeTheHeightsI {
+
+	public static void main(String[] args) {
+		
+		int[] arr = new int[] {3, 9, 12, 16, 20};
+		int n = arr.length;
+		int k = 3;
+		int ans = getMinDiff(arr, n, k);
+		System.out.println("ans: "+ans);
+
+	}
+	
+	static int getMinDiff(int[] arr, int n, int k) {
+		
+		int mean = mean(arr);
+		
+		for(int i=0; i<n; i++) {
+			if(arr[i]<mean) arr[i] += k;
+			else arr[i] -= k;
+		}
+		
+		int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
+		for(int ai: arr) {
+			min = Math.min(ai, min);
+			max = Math.max(ai, max);
+		}
+		
+		return max-min;
+    }
+	
+	private static int mean(int[] arr) {
+		int ans = 0;
+		for(int ai: arr) {
+			ans += ai;
+		}
+		
+		return ans/arr.length;
+	}
+
+}

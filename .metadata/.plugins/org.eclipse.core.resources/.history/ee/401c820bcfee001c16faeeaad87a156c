@@ -1,0 +1,24 @@
+import java.util.*;
+public class ImplementingDijkstra {
+
+	public static void main(String[] args) {
+		
+
+	}
+	
+	static int[] dijkstra(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj, int S) {
+    
+		
+	
+	}
+
+}
+
+class DNode {
+	int dist, value;
+	
+	public DNode(int dist, int value) {
+		this.dist = dist;
+		this.value = value;
+	}
+}

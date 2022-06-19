@@ -1,0 +1,36 @@
+import java.util.*;
+public class DetectCycleInUndirectedGraph {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	 public static boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj) {
+		 boolean[] visited = new boolean[V+1];
+		 Arrays.fill(visited, false);
+		 
+		 for(int vi=0; vi<V; vi++) {
+			 if(!visited[vi]) {
+				 boolean isCyclePresent = detectCycle(vi, adj, visited, -1);
+				 if(isCyclePresent) return true;
+			 }
+		 }
+		 return false;
+	 }
+	 
+	 private static boolean detectCycle(int vi, ArrayList<ArrayList<Integer>> adj, boolean[] visited, int parent) {
+		 
+		 visited[vi] = true;
+		 
+		 for(Integer ci: adj.get(vi)) {
+			 if(!visited[ci]) {
+				 boolean isCyclePresent = detectCycle(ci, adj, visited, vi);
+				 if(isCyclePresent) return true;
+				 
+			 } else if(ci!=parent) return true;
+		 }
+		 return false;
+	 }
+
+}

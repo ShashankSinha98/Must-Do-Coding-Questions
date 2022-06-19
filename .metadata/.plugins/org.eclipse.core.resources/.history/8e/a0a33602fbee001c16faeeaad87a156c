@@ -1,0 +1,24 @@
+import java.util.*;
+
+public class MinimumSwapsToSort {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public int minSwaps(int nums[]) {
+	
+	
+    }
+	
+
+}
+
+class LNode {
+	int value, idx;
+	public LNode(int value, int idx) {
+		this.value = value;
+		this.idx = idx;
+	}
+}

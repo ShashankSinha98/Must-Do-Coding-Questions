@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;MinimizeTheHeightsI&apos; to &apos;MinimizeTheHeightsII&apos;&#x0D;&#x0A;- Original project: &apos;Greedy&apos;&#x0D;&#x0A;- Original element: &apos;MinimizeTheHeightsI&apos;&#x0D;&#x0A;- Renamed element: &apos;MinimizeTheHeightsII&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;MinimizeTheHeightsI&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{MinimizeTheHeightsI.java[MinimizeTheHeightsI" matchStrategy="1" name="MinimizeTheHeightsII" qualified="false" references="true" similarDeclarations="false" stamp="1654962174676" textual="false" version="1.0"/>
+</session>

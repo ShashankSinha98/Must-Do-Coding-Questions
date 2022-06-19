@@ -1,0 +1,31 @@
+import java.util.*;
+class ChooseAndSwap {
+	
+	public static void main(String... args) {
+		
+		String A = "zyba";
+		String ans = chooseandswap(A);
+		System.out.println("Ans: "+ans);
+	}
+	
+	private static String chooseandswap(String A){
+		
+		if(A==null || A.length()==0) return A;
+		
+		int n = A.length();
+		int[] T = new int[26];
+		Arrays.fill(T, -1);
+		
+		for(int i=0; i<n; i++) {
+			char c = A.charAt(i);
+			int idx = c-'a';
+			if(T[idx]==-1) T[idx] = i;
+		}
+		
+		System.out.println(Arrays.toString(T));
+		return null;
+		
+	}
+	
+	
+}
